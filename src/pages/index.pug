@@ -1,8 +1,8 @@
-doctype html
-html
-	- let title = 'Home'
-	body.front
-		.p-wrap
-			.p-inner
-				section.section._v-align.s-hero._mh_stretch_1._py_30
-					.b-picture._bg._parallax
+extends includes/template.pug
+
+append config
+	- pageTitle = 'Main page'
+	- bodyClasses = ['front']
+
+block content
+	h1 Hello, world!!!

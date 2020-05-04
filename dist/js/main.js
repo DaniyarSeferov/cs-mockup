@@ -155,12 +155,59 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./common/fonts.scss":
+/*!***************************!*\
+  !*** ./common/fonts.scss ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
+/***/ "./common/normalize.scss":
+/*!*******************************!*\
+  !*** ./common/normalize.scss ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
 /***/ "./index.js":
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles */ "./styles.js");
+
+
+/***/ }),
+
+/***/ "./styles.js":
+/*!*******************!*\
+  !*** ./styles.js ***!
+  \*******************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_fonts_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/fonts.scss */ "./common/fonts.scss");
+/* harmony import */ var _common_fonts_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_normalize_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/normalize.scss */ "./common/normalize.scss");
+/* harmony import */ var _common_normalize_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_common_normalize_scss__WEBPACK_IMPORTED_MODULE_1__);
 
 
 

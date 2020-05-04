@@ -122,6 +122,7 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpg|svg|gif)$/,
+				exclude: /fonts/,
 				use: {
 					loader: 'file-loader',
 					options: {
@@ -132,7 +133,7 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.(ttf|woff|woff2|eot)$/,
+				test: /\.(ttf|woff|woff2|eot|svg)$/,
 				use: {
 					loader: 'file-loader',
 					options: {
