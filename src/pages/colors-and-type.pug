@@ -1,0 +1,24 @@
+extends includes/template.pug
+
+append config
+	- pageTitle = 'Colors & Type'
+	- bodyClasses = ['colors-type']
+
+block content
+	mixin color-item(title, color, classModifier='')
+		li.color-item
+			div.color-item__view(class=classModifier)
+			div.color-item__desc
+				span.color-item__title #{title}
+				span.color-item__color #{color}
+
+	div.content-wrapper
+		div.container
+			ul.color-item-wrap
+				+color-item('Dark Shade 100%', '#1F2041')
+				+color-item('Dark Shade 75%', '#1F2041', 'color-item__view_dark-shade-75')
+				+color-item('Dark Shade 50%', '#1F2041', 'color-item__view_dark-shade-50')
+				+color-item('Dark Shade 25%', '#1F2041', 'color-item__view_dark-shade-25')
+				+color-item('Dark Shade 5%', '#1F2041', 'color-item__view_dark-shade-5')
+				+color-item('Purple', '#BC9CFF', 'color-item__view_purple')
+				+color-item('Green', '#6FCF97', 'color-item__view_green')

@@ -42,6 +42,15 @@ const cssLoaders = extra => {
 	];
 
 	if (extra) {
+		if (extra === 'sass-loader') {
+			extra = {
+				loader: 'sass-loader',
+				options: {
+					prependData: `@import "./src/common/settings.scss";`
+				}
+			};
+		}
+
 		loaders.push(extra);
 	}
 

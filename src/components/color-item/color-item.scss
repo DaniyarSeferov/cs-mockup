@@ -1,0 +1,35 @@
+.color-item {
+  margin: 0;
+  padding: 0;
+
+  &__view {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    background: $color-dark-shade;
+  }
+
+  &__view_dark-shade-75 {
+    background: $color-dark-shade-75;
+  }
+
+  &__view_dark-shade-50 {
+    background: $color-dark-shade-50;
+  }
+
+  &__view_dark-shade-25 {
+    background: $color-dark-shade-25;
+  }
+
+  &__view_dark-shade-5 {
+    background: $color-dark-shade-5;
+  }
+
+  &__view_purple {
+    background: $color-purple;
+  }
+
+  &__view_green {
+    background: $color-green;
+  }
+}

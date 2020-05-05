@@ -12,9 +12,10 @@ html
 			meta(http-equiv="X-UA-Compatible", content="IE=Edge")
 	body(class=bodyClasses)
 		//- content here
-		include _header.pug
+		div.outer-wrapper
+			include _header.pug
 
-		block content
+			div.inner-wrapper
+				block content
 
-		footer
 			include _footer.pug
