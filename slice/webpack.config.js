@@ -1,11 +1,12 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const glob = require("glob");
+const fs = require('fs');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -71,27 +72,63 @@ const plugins = () => {
 		})
 	];
 
-	let pages = glob.sync(__dirname + '/src/pages/*.pug');
-	pages.forEach(function (file) {
-		let base = path.basename(file, '.pug');
+	const pages = [];
 
-		pluginsArr.push(
-			new HTMLWebpackPlugin({
-				filename: 'pages/' + base + '.html',
-				template: './pages/' + base + '.pug',
-				inject: true
-			})
-		)
-	});
+	fs.readdirSync(path.resolve(__dirname, 'src/pages'))
+		.filter((file) => {
+			return file.indexOf('base') !== 0;
+		})
+		.forEach((file) => {
+			pages.push(file.split('/', 2));
+		});
 
-	return pluginsArr;
+	const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
+		getData: () => {
+			try {
+				return JSON.parse(fs.readFileSync(`./src/pages/${fileName}/data.json`, 'utf8'));
+			} catch (e) {
+				console.warn(`data.json was not provided for page ${fileName}`);
+				return {};
+			}
+		},
+		filename: `pages/${fileName}.html`,
+		template: `./pages/${fileName}/${fileName}.pug`,
+		alwaysWriteToDisk: true,
+		inject: 'body',
+		hash: true,
+	}));
+
+	// pages.filter((file) => {
+	// 	return file.indexOf('base') !== 0;
+	// }).forEach(function (file) {
+	// 	let base = path.basename(file, '.pug');
+	//
+	// 	pluginsArr.push(
+	// 		new HTMLWebpackPlugin({
+	// 			getData: () => {
+	// 				try {
+	// 					return JSON.parse(fs.readFileSync(`./src/pages/${base}/data.json`, 'utf8'));
+	// 				} catch (e) {
+	// 					console.warn(`data.json was not provided for page ${base}`);
+	// 					return {};
+	// 				}
+	// 			},
+	// 			filename: `pages/${base}.html`,
+	// 			template: `./pages/${base}/${base}.pug`,
+	// 			alwaysWriteToDisk: true,
+	// 			inject: true
+	// 		})
+	// 	)
+	// });
+
+	return pluginsArr.concat(htmlPlugins);
 }
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	mode: 'development',
 	entry: {
-		main: ['@babel/polyfill', './index.js']
+		main: ['@babel/polyfill', './entry.js']
 	},
 	output: {
 		filename: './js/' + filename('js'),
