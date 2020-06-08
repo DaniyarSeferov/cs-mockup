@@ -1,0 +1,5 @@
+mixin s_title(options)
+	if !options
+		- options = {}
+
+	h2= options.title || 'Title'

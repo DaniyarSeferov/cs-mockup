@@ -1,0 +1,10 @@
+mixin button(options)
+	if !options
+		- options = {}
+
+	-
+		var classes = ''
+		classes += options.class ? options.class : ''
+
+	a.btn(class= classes)
+		= options.title || ''

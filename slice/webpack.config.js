@@ -91,35 +91,12 @@ const plugins = () => {
 				return {};
 			}
 		},
-		filename: `pages/${fileName}.html`,
+		filename: `${fileName}.html`,
 		template: `./pages/${fileName}/${fileName}.pug`,
 		alwaysWriteToDisk: true,
 		inject: 'body',
 		hash: true,
 	}));
-
-	// pages.filter((file) => {
-	// 	return file.indexOf('base') !== 0;
-	// }).forEach(function (file) {
-	// 	let base = path.basename(file, '.pug');
-	//
-	// 	pluginsArr.push(
-	// 		new HTMLWebpackPlugin({
-	// 			getData: () => {
-	// 				try {
-	// 					return JSON.parse(fs.readFileSync(`./src/pages/${base}/data.json`, 'utf8'));
-	// 				} catch (e) {
-	// 					console.warn(`data.json was not provided for page ${base}`);
-	// 					return {};
-	// 				}
-	// 			},
-	// 			filename: `pages/${base}.html`,
-	// 			template: `./pages/${base}/${base}.pug`,
-	// 			alwaysWriteToDisk: true,
-	// 			inject: true
-	// 		})
-	// 	)
-	// });
 
 	return pluginsArr.concat(htmlPlugins);
 }
@@ -143,7 +120,8 @@ module.exports = {
 	optimization: optimization(),
 	devServer: {
 		port: 4200,
-		hot: isDev
+		hot: isDev,
+		contentBase: 'dist'
 	},
 	devtool: isDev ? 'source-map' : '',
 	plugins: plugins(),

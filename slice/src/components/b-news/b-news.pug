@@ -1,0 +1,20 @@
+mixin b-news(options)
+	if !options
+		- options = {}
+	if !options.data
+		- options.data = {}
+
+	.b-news
+		.b-news__view
+			if options.image
+				img.b-news__image(
+					src = './images/' + options.image,
+					alt = 'news image'
+				)
+		.b-news__title= options.data.title || ''
+		.b-news__description
+			p= options.data.desc || ''
+		.b-news__info
+			span.b-news__date= options.data.date || ''
+			span.b-news__likes= options.data.likes || ''
+			span.b-news__watches= options.data.watches || ''

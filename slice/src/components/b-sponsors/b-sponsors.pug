@@ -1,0 +1,12 @@
+mixin b-sponsors(options)
+	if !options
+		- options = {}
+
+	.b-sponsors
+		a(
+			href = options.href,
+			target = "_blank"
+		)
+			img(
+				src = options.logo
+			)

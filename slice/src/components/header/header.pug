@@ -8,7 +8,9 @@ mixin header(options)
     - options = {}
 
   .header
-    a.header__logo(href = '/home.html')
-      | Flat
     .header__menu
       +menu({items: options.menuItems})
+    .header__promo
+      | Федерация Крымского Стиля
+    a.header__logo(href = '/index.html')
+      include ../../images/logo.svg

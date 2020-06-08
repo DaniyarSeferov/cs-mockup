@@ -1,0 +1,18 @@
+mixin b-video(options)
+	if !options
+		- options = {}
+	if !options.data
+		- options.data = {}
+
+	.b-video
+		.b-video__view
+			if options.image
+				img.b-video__image(
+					src = './images/' + options.image,
+					alt = 'video image'
+				)
+		.b-video__description= options.data.desc || ''
+		.b-video__info
+			span.b-video__date= options.data.date || ''
+			span.b-video__likes= options.data.likes || ''
+			span.b-video__watches= options.data.watches || ''

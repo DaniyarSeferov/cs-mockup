@@ -1,1 +1,46 @@
 extends ../base/base
+
+include ../../components/b-news/b-news
+include ../../components/b-video/b-video
+include ../../components/s-title/s-title
+include ../../components/button/button
+include ../../components/b-sponsors/b-sponsors
+
+block title
+	| Main
+
+block main
+	- data = htmlWebpackPlugin.options.getData()
+	- news = data.news || {}
+	- videos = data.videos || {}
+	- sponsors = data.sponsors || {}
+	- gallery = data.gallery || {}
+
+	+layout__section('s-news')
+		+s_title({title: news.title})
+		.news-item-wrap
+			for item in news.items
+				.news-item
+					+b-news(item)
+		+button({title: news.btnName})
+
+	+layout__section('s-video')
+		+s_title({title: videos.title})
+		.video-item-wrap
+			for item in videos.items
+				.video-item
+					+b-video(item)
+		+button({title: videos.btnName})
+
+	+layout__section('s-sponsors')
+		+s_title({title: sponsors.title})
+		.sponsors-item-wrap
+			for item in sponsors.items
+				.sponsors-item
+					+b-sponsors(item)
+
+	+layout__section('s-gallery')
+		+s_title({title: gallery.title})
+		.gallery-item-wrap
+			for item in gallery.items
+				img(src= item)
