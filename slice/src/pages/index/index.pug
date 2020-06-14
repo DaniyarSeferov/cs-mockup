@@ -22,15 +22,17 @@ block main
 			for item in news.items
 				.news-item
 					+b-news(item)
-		+button({title: news.btnName})
+		.btn-wrap
+			+button({title: news.btnName})
 
 	+layout__section('s-video')
 		+s_title({title: videos.title})
-		.video-item-wrap
+		.video-item-wrap.clearfix
 			for item in videos.items
 				.video-item
 					+b-video(item)
-		+button({title: videos.btnName})
+		.btn-wrap
+			+button({title: videos.btnName})
 
 	+layout__section('s-sponsors')
 		+s_title({title: sponsors.title})

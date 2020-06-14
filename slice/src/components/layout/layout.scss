@@ -13,7 +13,12 @@
 
   &__main {
     overflow: hidden;
-    background-image: linear-gradient(#000 0%, rgba(255,0,0,0) 2%);
+    background-image: linear-gradient(#000 0%, rgba(255,0,0,0) 2%),
+      url("../../images/bg.png");
+
+    >.layout__container {
+      background-color: $color-blue;
+    }
   }
 
   &__container {

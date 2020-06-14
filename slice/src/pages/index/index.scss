@@ -1,0 +1,20 @@
+.btn-wrap {
+  margin: 28px 0 100px;
+  text-align: center;
+}
+
+.video-item-wrap {
+  background-color: white;
+  padding: 25px;
+
+  .video-item {
+    float: left;
+    width: 550px;
+    //border: 1px solid black;
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
