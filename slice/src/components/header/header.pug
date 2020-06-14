@@ -1,4 +1,5 @@
 include ../menu/menu
+include ../b-social/b-social
 
 //-
   options.menuItems - массив елементов меню
@@ -8,9 +9,13 @@ mixin header(options)
     - options = {}
 
   .header
+    .header__social
+      +b-social({items: options.socialItems})
     .header__menu
       +menu({items: options.menuItems})
     .header__promo
       | Федерация Крымского Стиля
     a.header__logo(href = '/index.html')
-      include ../../images/logo.svg
+      img(src = '../../images/logo.png')
+    .header__social.header__social-right
+      +b-social({items: options.socialItems})

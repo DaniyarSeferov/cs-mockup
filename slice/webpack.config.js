@@ -158,6 +158,7 @@ module.exports = {
 			},
 			{
 				test: /\.(ttf|woff|woff2|eot|svg)$/,
+				exclude: /images/,
 				use: {
 					loader: 'file-loader',
 					options: {

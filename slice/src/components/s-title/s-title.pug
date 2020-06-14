@@ -2,4 +2,5 @@ mixin s_title(options)
 	if !options
 		- options = {}
 
-	h2= options.title || 'Title'
+	.section__title
+		h2= options.title || 'Title'

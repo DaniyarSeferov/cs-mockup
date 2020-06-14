@@ -7,14 +7,21 @@ mixin b-news(options)
 	.b-news
 		.b-news__view
 			if options.image
-				img.b-news__image(
+				img(
 					src = './images/' + options.image,
 					alt = 'news image'
 				)
 		.b-news__title= options.data.title || ''
 		.b-news__description
 			p= options.data.desc || ''
-		.b-news__info
+		.b-news__info.clearfix
 			span.b-news__date= options.data.date || ''
-			span.b-news__likes= options.data.likes || ''
+			span
+				| &bull;
+			span.b-news__likes
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M5 12V6.36992C5 6.13121 5.08539 5.90038 5.24074 5.71913L7.76406 2.77527C7.91381 2.60055 8.13243 2.5 8.36255 2.5C8.91291 2.5 9.29386 3.04971 9.10061 3.56503L8.50667 5.14888C8.26151 5.80263 8.74479 6.5 9.443 6.5H12.044C12.7457 6.5 13.2292 7.20398 12.9773 7.85898L11.7396 11.0769C11.294 12.2355 10.1809 13 8.9396 13H6C5.44772 13 5 12.5523 5 12Z" stroke="#757575"/>
+				<path d="M2 7.5C2 6.94772 2.44772 6.5 3 6.5C3.55228 6.5 4 6.94772 4 7.5V12C4 12.5523 3.55228 13 3 13C2.44772 13 2 12.5523 2 12V7.5Z" fill="#757575"/>
+				</svg>
+				= options.data.likes || ''
 			span.b-news__watches= options.data.watches || ''

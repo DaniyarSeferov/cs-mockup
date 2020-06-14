@@ -17,7 +17,7 @@ html
       +layout__header()
         +layout__container({basis: 1000, align: 'center'})
           block header
-            +header({menuItems: locals.menuItems})
+            +header({menuItems: locals.menuItems, socialItems: locals.socialItems })
       +layout__main()
         +layout__container({basis: 1000, align: 'center'})
           block main

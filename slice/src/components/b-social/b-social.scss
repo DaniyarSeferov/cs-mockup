@@ -1,0 +1,32 @@
+.b-social__btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 2px;
+  vertical-align: middle;
+  color: #ffffff;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0;
+  background-position: center;
+
+  &-ok {
+    background-image: url('./images/icons/icon-ok.svg');
+  }
+
+  &-vk {
+    background-image: url('./images/icons/icon-vk.svg');
+  }
+
+  &-fb {
+    background-image: url('./images/icons/icon-fb.svg');
+  }
+
+  &-yt {
+    background-image: url('./images/icons/icon-yt.svg');
+  }
+
+  &-in {
+    background-image: url('./images/icons/icon-in.svg');
+  }
+}

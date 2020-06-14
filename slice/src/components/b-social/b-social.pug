@@ -1,0 +1,9 @@
+mixin b-social(options)
+  if !options
+    - options = {}
+  if !options.items
+    - options.items = []
+
+  .b-social
+    for item in options.items
+      a.b-social__btn(class = item.class, href = item.href)= item.name
