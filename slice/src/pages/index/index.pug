@@ -36,7 +36,7 @@ block main
 
 	+layout__section('s-sponsors')
 		+s_title({title: sponsors.title})
-		.sponsors-item-wrap
+		.sponsors-item-wrap.clearfix
 			for item in sponsors.items
 				.sponsors-item
 					+b-sponsors(item)
@@ -46,3 +46,5 @@ block main
 		.gallery-item-wrap
 			for item in gallery.items
 				img(src= item)
+		.btn-wrap
+			+button({title: "Все фотографии"})

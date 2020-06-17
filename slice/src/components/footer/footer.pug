@@ -1,3 +1,4 @@
+include ../b-social/b-social
 //-
 	options.items - массив с элементами меню
 	options.items[0].name - имя элемента меню
@@ -8,21 +9,28 @@ mixin footer(options)
 		- options = {}
 	if !options.items
 		- options.items = []
+	if !options.socialItems
+		- options.socialItems = []
 
 	.footer
-		nav.footer__nav
-			ul
-				for item in options.items
-					li
-						a.footer__nav-item(href = item.href)= item.name
-						if item.items
-							ul
-								for itemInner in item.items
-									li
-										a.footer__nav-item(href = itemInner.href)= itemInner.name
+		.footer__menu.clearfix
+			for item in options.items
+				.col
+					ul
+						for itemInner in item
+							li
+								a.footer__nav-item(href = itemInner.href)= itemInner.name
+								if itemInner.items
+									ul
+										for itemInner2 in itemInner.items
+											li
+												a.footer__nav-item(href = itemInner2.href)= itemInner2.name
 
 		.footer__logo
-			| Федерация Крымского Стиля
+			img(src= "../../images/footer_logo.png")
+			span.footer__promo
+				| Федерация Крымского Стиля
+			+b-social({items: options.socialItems})
 
 		.footer__copyright
-			| &copy; 2020
+			| &copy; 2020 Все права защищены

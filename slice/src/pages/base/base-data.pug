@@ -1,169 +1,297 @@
 -
-  locals.menuItems = [
-    {
-      name: 'Главная',
-      href: '/index.html'
-    }, {
-      name: 'Новости',
-      href: '/news.html'
-    }, {
-      name: 'О федерации',
-      href: '/about.html',
-      items: [
-        {
-          name: 'История создания и развития',
-          href: '/history.html'
-        }, {
-          name: 'Руководство Федерации',
-          href: '#'
-        }, {
-          name: 'Почетные члены Федерации',
-          href: '#'
-        }, {
-          name: 'Региональные отделения',
-          href: '#'
-        }, {
-          name: 'Судейская коллегия',
-          href: '#'
-        }, {
-          name: 'Тренерский состав',
-          href: '/trainers.html'
-        }, {
-          name: 'Клубы',
-          href: '/clubs.html'
-        }
-      ]
-    }, {
-      name: 'Спортсмены',
-      href: '/sportsmans.html',
-      items: [
-        {
-          name: 'Сборная - взрослые',
-          href: '#'
-        }, {
-          name: 'Сборная - юниоры',
-          href: '#'
-        }, {
-          name: 'Сборная - старшие юноши',
-          href: '#'
-        }, {
-          name: 'Сборная - юноши',
-          href: '#'
-        }, {
-          name: 'Сборная - младшие юноши',
-          href: '#'
-        }, {
-          name: 'Сборная - дети',
-          href: '#'
-        }
-      ]
-    }, {
-      name: 'Соревнования и матчевые встречи',
-      href: '/competitions.html',
-      items: [
-        {
-          name: 'Правила разделов',
-          href: '#'
-        }, {
-          name: 'Календарный план',
-          href: '#'
-        }, {
-          name: 'Положения',
-          href: '#'
-        }, {
-          name: 'Результаты',
-          href: '#'
-        }
-      ]
-    }, {
-      name: 'Семинары',
-      href: '/seminars.html',
-      items: [
-        {
-          name: 'Итоги семинаров',
-          href: '#'
-        }, {
-          name: 'Положения',
-          href: '#'
-        }
-      ]
-    }, {
-      name: 'Аттестации',
-      href: '/attestation.html',
-      items: [
-        {
-          name: 'Банк данных',
-          href: '#'
-        }, {
-          name: 'Итоги экзаменов',
-          href: '#'
-        }, {
-          name: 'Дидактический материал',
-          href: '#'
-        }, {
-          name: 'Уровни и нормативы',
-          href: '#'
-        }
-      ]
-    }, {
-      name: 'Документы',
-      href: '/documents.html',
-      items: [
-        {
-          name: 'Учредительные документы и договора',
-          href: '#'
-        }, {
-          name: 'Нормативные документы',
-          href: '#'
-        }, {
-          name: 'Приказы',
-          href: '#'
-        }, {
-          name: 'Реквизиты Федерации',
-          href: '#'
-        }
-      ]
-    }, {
-      name: 'Галерея',
-      href: '/gallery.html',
-      items: [
-        {
-          name: 'Видео',
-          href: '#'
-        }, {
-          name: 'Фото',
-          href: '#'
-        }
-      ]
-    }, {
-      name: 'Спонсоры и партнеры',
-      href: '/sponsors.html'
-    }, {
-      name: 'Контакты',
-      href: '/contacts.html'
-    }
-  ]
+	locals.menuItems = [
+		{
+			name: 'Главная',
+			href: '/index.html'
+		}, {
+			name: 'Новости',
+			href: '/news.html'
+		}, {
+			name: 'О федерации',
+			href: '/about.html',
+			items: [
+				{
+					name: 'История создания и развития',
+					href: '/history.html'
+				}, {
+					name: 'Руководство Федерации',
+					href: '#'
+				}, {
+					name: 'Почетные члены Федерации',
+					href: '#'
+				}, {
+					name: 'Региональные отделения',
+					href: '#'
+				}, {
+					name: 'Судейская коллегия',
+					href: '#'
+				}, {
+					name: 'Тренерский состав',
+					href: '/trainers.html'
+				}, {
+					name: 'Клубы',
+					href: '/clubs.html'
+				}
+			]
+		}, {
+			name: 'Спортсмены',
+			href: '/sportsmans.html',
+			items: [
+				{
+					name: 'Сборная - взрослые',
+					href: '#'
+				}, {
+					name: 'Сборная - юниоры',
+					href: '#'
+				}, {
+					name: 'Сборная - старшие юноши',
+					href: '#'
+				}, {
+					name: 'Сборная - юноши',
+					href: '#'
+				}, {
+					name: 'Сборная - младшие юноши',
+					href: '#'
+				}, {
+					name: 'Сборная - дети',
+					href: '#'
+				}
+			]
+		}, {
+			name: 'Соревнования и матчевые встречи',
+			href: '/competitions.html',
+			items: [
+				{
+					name: 'Правила разделов',
+					href: '#'
+				}, {
+					name: 'Календарный план',
+					href: '#'
+				}, {
+					name: 'Положения',
+					href: '#'
+				}, {
+					name: 'Результаты',
+					href: '#'
+				}
+			]
+		}, {
+			name: 'Семинары',
+			href: '/seminars.html',
+			items: [
+				{
+					name: 'Итоги семинаров',
+					href: '#'
+				}, {
+					name: 'Положения',
+					href: '#'
+				}
+			]
+		}, {
+			name: 'Аттестации',
+			href: '/attestation.html',
+			items: [
+				{
+					name: 'Банк данных',
+					href: '#'
+				}, {
+					name: 'Итоги экзаменов',
+					href: '#'
+				}, {
+					name: 'Дидактический материал',
+					href: '#'
+				}, {
+					name: 'Уровни и нормативы',
+					href: '#'
+				}
+			]
+		}, {
+			name: 'Документы',
+			href: '/documents.html',
+			items: [
+				{
+					name: 'Учредительные документы и договора',
+					href: '#'
+				}, {
+					name: 'Нормативные документы',
+					href: '#'
+				}, {
+					name: 'Приказы',
+					href: '#'
+				}, {
+					name: 'Реквизиты Федерации',
+					href: '#'
+				}
+			]
+		}, {
+			name: 'Галерея',
+			href: '/gallery.html',
+			items: [
+				{
+					name: 'Видео',
+					href: '#'
+				}, {
+					name: 'Фото',
+					href: '#'
+				}
+			]
+		}, {
+			name: 'Спонсоры и партнеры',
+			href: '/sponsors.html'
+		}, {
+			name: 'Контакты',
+			href: '/contacts.html'
+		}
+	]
+
 -
- locals.socialItems = [
-   {
-     name: 'Одноклассники',
-     href: 'https://ok.ru/',
-     class: 'b-social__btn-ok'
-   }, {
-     name: 'Вконтакте',
-     href: 'https://vk.com/htmlacademy',
-     class: 'b-social__btn-vk'
-   }, {
-     name: 'Фейсбук',
-     href: 'https://facebook.com/htmlacademy',
-     class: 'b-social__btn-fb'
-   }, {
-     name: 'Ютуб',
-     href: 'https://www.youtube.com/',
-     class: 'b-social__btn-yt'
-   }, {
-     name: 'Инстаграм',
-     href: 'https://instagram.com/htmlacademy',
-     class: 'b-social__btn-in'
-   }
- ]
+	locals.footerItems = [
+		[
+			{
+				name: 'Главная',
+				href: '/index.html'
+			}, {
+			name: 'Новости',
+			href: '/news.html'
+		}, {
+			name: 'О федерации',
+			href: '/about.html',
+			items: [
+				{
+					name: 'История создания и развития',
+					href: '/history.html'
+				}, {
+					name: 'Руководство Федерации',
+					href: '#'
+				}, {
+					name: 'Почетные члены Федерации',
+					href: '#'
+				}, {
+					name: 'Региональные отделения',
+					href: '#'
+				}, {
+					name: 'Судейская коллегия',
+					href: '#'
+				}, {
+					name: 'Тренерский состав',
+					href: '/trainers.html'
+				}, {
+					name: 'Клубы',
+					href: '/clubs.html'
+				}
+			]
+		}
+		],
+		[
+			{
+				name: 'Спортсмены',
+				href: '/sportsmans.html',
+				items: [
+					{
+						name: 'Сборная - взрослые',
+						href: '#'
+					}, {
+						name: 'Сборная - юниоры',
+						href: '#'
+					}, {
+						name: 'Сборная - старшие юноши',
+						href: '#'
+					}, {
+						name: 'Сборная - юноши',
+						href: '#'
+					}, {
+						name: 'Сборная - младшие юноши',
+						href: '#'
+					}, {
+						name: 'Сборная - дети',
+						href: '#'
+					}
+				]
+			}, {
+				name: 'Соревнования и матчевые встречи',
+				href: '/competitions.html',
+				items: [
+					{
+						name: 'Правила разделов',
+						href: '#'
+					}, {
+						name: 'Календарный план',
+						href: '#'
+					}, {
+						name: 'Положения',
+						href: '#'
+					}, {
+						name: 'Результаты',
+						href: '#'
+					}
+				]
+			}
+		],
+		[
+			{
+				name: 'Документы',
+				href: '/documents.html',
+				items: [
+					{
+						name: 'Учредительные документы и договора',
+						href: '#'
+					}, {
+						name: 'Нормативные документы',
+						href: '#'
+					}, {
+						name: 'Приказы',
+						href: '#'
+					}, {
+						name: 'Реквизиты Федерации',
+						href: '#'
+					}
+				]
+				}, {
+				name: 'Галерея',
+				href: '/gallery.html',
+				items: [
+					{
+						name: 'Видео',
+						href: '#'
+					}, {
+						name: 'Фото',
+						href: '#'
+					}
+				]
+			}
+		],
+		[
+			{
+				name: 'Спонсоры и партнеры',
+				href: '/sponsors.html'
+			}, {
+				name: 'Контакты',
+				href: '/contacts.html'
+			}
+		]
+	]
+
+-
+	locals.socialItems = [
+		{
+			name: 'Одноклассники',
+			href: 'https://ok.ru/',
+			class: 'b-social__btn-ok'
+		}, {
+			name: 'Вконтакте',
+			href: 'https://vk.com/htmlacademy',
+			class: 'b-social__btn-vk'
+		}, {
+			name: 'Фейсбук',
+			href: 'https://facebook.com/htmlacademy',
+			class: 'b-social__btn-fb'
+		}, {
+			name: 'Ютуб',
+			href: 'https://www.youtube.com/',
+			class: 'b-social__btn-yt'
+		}, {
+			name: 'Инстаграм',
+			href: 'https://instagram.com/htmlacademy',
+			class: 'b-social__btn-in'
+		}
+	]

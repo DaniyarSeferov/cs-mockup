@@ -1,4 +1,9 @@
 //@import '../../common/settings.scss';
+.inner-wrapper {
+  background: linear-gradient(rgb(0, 0, 0) 0%, rgba(255, 0, 0, 0) 2%),
+          linear-gradient(#96A5BA, #FFF);
+}
+
 .layout {
   height: 100%;
 
@@ -17,7 +22,7 @@
       url("../../images/bg.png");
 
     >.layout__container {
-      background-color: $color-blue;
+      background: linear-gradient(#96A5BA, #e2e6eb);
     }
   }
 

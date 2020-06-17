@@ -59,23 +59,23 @@
     "title": "Спонсоры и партнеры",
     "items": [
       {
-        "logo": "logo.jpg",
+        "logo": "sponsor.png",
         "href": "#"
       },
       {
-        "logo": "logo1.jpg",
+        "logo": "sponsor.png",
         "href": "#"
       },
       {
-        "logo": "logo2.jpg",
+        "logo": "sponsor.png",
         "href": "#"
       },
       {
-        "logo": "logo3.jpg",
+        "logo": "sponsor.png",
         "href": "#"
       },
       {
-        "logo": "logo4.jpg",
+        "logo": "sponsor.png",
         "href": "#"
       }
     ]

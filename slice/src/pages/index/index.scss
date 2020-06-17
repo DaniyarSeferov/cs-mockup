@@ -1,5 +1,5 @@
 .btn-wrap {
-  margin: 28px 0 100px;
+  margin: 28px 0 35px;
   text-align: center;
 }
 
@@ -17,4 +17,20 @@
       margin-right: 0;
     }
   }
+}
+
+.sponsors-item-wrap {
+  background-color: white;
+  margin-bottom: 70px;
+  padding: 60px 20px;
+
+  .sponsors-item {
+    float: left;
+    margin-right: 40px;
+  }
+}
+
+.gallery-item-wrap {
+  height: 725px;
+  background-color: white;
 }
