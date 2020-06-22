@@ -3,6 +3,27 @@
   text-align: center;
 }
 
+.section {
+
+  &.s-news {
+    margin-top: 40px;
+
+    .news-item-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .news-item {
+      border: 1px solid #d8d8d8;
+      border-top: none;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
 .video-item-wrap {
   background-color: white;
   padding: 25px;

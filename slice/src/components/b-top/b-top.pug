@@ -1,0 +1,10 @@
+mixin b-top(options)
+	if !options
+		- options = {}
+
+	section.b-top
+		.container
+			h1
+				| Федерация Крымского Стиля
+			a.b-top__logo(href = '/index.html')
+				img(src = '../../images/logo.png')

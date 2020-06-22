@@ -3,6 +3,7 @@ block variables
 
 include ../../components/layout/layout
 include ../../components/header/header
+include ../../components/b-top/b-top
 include ../../components/footer/footer
 
 doctype html
@@ -13,17 +14,15 @@ html
     title
       block title
   body
-    +layout()
-      +layout__header()
-        +layout__container({basis: 1000, align: 'center'})
-          block header
-            +header({menuItems: locals.menuItems, socialItems: locals.socialItems })
+    .outer-wrapper
+      block header
+        +header({menuItems: locals.menuItems, socialItems: locals.socialItems})
+      block b-top
+        +b-top()
       .inner-wrapper
-        +layout__main()
-          +layout__container({basis: 1000, align: 'center'})
+        .content-wrapper
+          .container
             block main
-        +layout__footer()
-          +layout__container({basis: 1000, align: 'center'})
             block footer
               +footer({items: locals.footerItems, socialItems: locals.socialItems})
     block scripts

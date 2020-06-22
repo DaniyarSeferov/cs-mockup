@@ -8,14 +8,10 @@ mixin header(options)
   if !options
     - options = {}
 
-  .header
+  header.header
     .header__social
       +b-social({items: options.socialItems})
-    .header__menu
+    .header__menu.container
       +menu({items: options.menuItems})
-    .header__promo
-      | Федерация Крымского Стиля
-    a.header__logo(href = '/index.html')
-      img(src = '../../images/logo.png')
     .header__social.header__social-right
       +b-social({items: options.socialItems})

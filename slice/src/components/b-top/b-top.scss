@@ -1,0 +1,28 @@
+.b-top {
+  position: relative;
+  min-height: 1230px;
+  padding-top: 90px;
+  background-image: url(../../images/header.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 58px;
+    line-height: 80px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, #DDC077 0%, #F9F3CB 34%, #DBBE75 72%, #FAF3CD 100%);
+  }
+
+  &__logo {
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,4 +1,7 @@
 .header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
   text-align: center;
   overflow: hidden;
 
@@ -18,21 +21,5 @@
     padding: 4px 0;
     background-image: linear-gradient(#B5B5B5 0%, #E6E6E6 20%, #4A4A4a 95%);
     border-radius: 10px;
-  }
-
-  &__promo {
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: 58px;
-    line-height: 80px;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(to right, #DDC077 0%, #F9F3CB 34%, #DBBE75 72%, #FAF3CD 100%);
-  }
-
-  &__logo {
-    display: block;
   }
 }

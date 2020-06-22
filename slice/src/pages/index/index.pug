@@ -18,7 +18,7 @@ block main
 
 	+layout__section('s-news')
 		+s_title({title: news.title})
-		.news-item-wrap.clearfix
+		.news-item-wrap
 			for item in news.items
 				.news-item
 					+b-news(item)
