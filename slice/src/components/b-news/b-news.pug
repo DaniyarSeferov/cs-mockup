@@ -11,7 +11,8 @@ mixin b-news(options)
 					src = './images/' + options.image,
 					alt = 'news image'
 				)
-		h3.b-news__title= options.data.title || ''
+		h3.b-news__title
+			a(href = '#')= options.data.title || ''
 		.b-news__description
 			p= options.data.desc || ''
 		.b-news__info.clearfix
