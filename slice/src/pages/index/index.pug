@@ -19,27 +19,30 @@ block main
 	+layout__section('s-news')
 		+s_title({title: news.title})
 		.news-item-wrap
-			for item in news.items
-				.news-item
-					+b-news(item)
+			.owl-carousel.owl-carousel__news
+				for item in news.items
+					.news-item
+						+b-news(item)
 		.btn-wrap
 			+button({title: news.btnName})
 
 	+layout__section('s-video')
 		+s_title({title: videos.title})
-		.video-item-wrap.clearfix
-			for item in videos.items
-				.video-item
-					+b-video(item)
+		.video-item-wrap
+			.owl-carousel.owl-carousel__videos
+				for item in videos.items
+					.video-item
+						+b-video(item)
 		.btn-wrap
 			+button({title: videos.btnName})
 
 	+layout__section('s-sponsors')
 		+s_title({title: sponsors.title})
 		.sponsors-item-wrap.clearfix
-			for item in sponsors.items
-				.sponsors-item
-					+b-sponsors(item)
+			.owl-carousel.owl-carousel__sponsors
+				for item in sponsors.items
+					.sponsors-item
+						+b-sponsors(item)
 
 	+layout__section('s-gallery')
 		+s_title({title: gallery.title})
