@@ -13,7 +13,7 @@ body {
   font-size: 14px;
   line-height: 1.5;
   font-weight: normal;
-  min-width: 320px;
+  //min-width: 320px;
 }
 
 *, :after, :before {
@@ -43,8 +43,9 @@ body {
 }
 
 .container {
-  width: 1170px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 //.layout {

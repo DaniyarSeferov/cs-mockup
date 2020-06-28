@@ -25,7 +25,7 @@ block main
 		.btn-wrap
 			+button({title: news.btnName})
 
-	+layout__section('s-video')
+	//+layout__section('s-video')
 		+s_title({title: videos.title})
 		.video-item-wrap.clearfix
 			for item in videos.items
@@ -34,14 +34,14 @@ block main
 		.btn-wrap
 			+button({title: videos.btnName})
 
-	+layout__section('s-sponsors')
+	//+layout__section('s-sponsors')
 		+s_title({title: sponsors.title})
 		.sponsors-item-wrap.clearfix
 			for item in sponsors.items
 				.sponsors-item
 					+b-sponsors(item)
 
-	+layout__section('s-gallery')
+	//+layout__section('s-gallery')
 		+s_title({title: gallery.title})
 		.gallery-item-wrap
 			for item in gallery.items

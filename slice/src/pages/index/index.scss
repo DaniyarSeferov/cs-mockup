@@ -9,17 +9,16 @@
     margin-top: 40px;
 
     .news-item-wrap {
+      margin: 0 -21px;
       display: flex;
-      justify-content: space-between;
+      //justify-content: space-between;
+      //align-items: stretch;
+      flex-wrap: wrap;
     }
 
     .news-item {
-      border: 1px solid #d8d8d8;
-      border-top: none;
-
-      &:last-child {
-        margin-right: 0px;
-      }
+      width: calc(33.333% - 40px);
+      margin: 0 20px 40px;
     }
   }
 }

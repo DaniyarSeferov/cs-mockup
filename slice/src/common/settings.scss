@@ -3,68 +3,28 @@ $color-blue: #B9C3D1;
 $color-black: #000;
 $color-gray: #666;
 $color-dark-blue: #016DAE;
+$color-white: #FFF;
 
-$color-dark-shade-75: rgba(31, 32, 65, 0.75);
-$color-dark-shade-50: rgba(31, 32, 65, 0.5);
-$color-dark-shade-25: rgba(31, 32, 65, 0.25);
-$color-dark-shade-5: rgba(31, 32, 65, 0.05);
-$color-purple: #BC9CFF;
-$color-green: #6FCF97;
+//fonts
+$Montserrat: Montserrat;
+$OpenSans: OpenSans;
 
-//width
-$width-large: 1920px;
-$width-small: 320px;
+//grid vars
+//widths
+$width-xsmall: 90%;
+//xs < $bp-small
+$bp-small: 768px;
+$width-small: 730px;
+//$bp-middle > sm >= $bp-small
+$bp-middle: 1024px;
+$width-middle: 980px;
+//$bp-large > md >= $bp-middle
+$bp-large: 1200px;
+$width-large: 980px;
 
-/***** Variables *****/
-$xxs: 320px;
-$xs: 575px;
-$sm: 767px;
-$md: 991px;
-$lg: 1199px;
-$xl: 1440px;
+$bp-xl: 1600px;
+$width-xl: 1170px;
 
-$color-first: #4eb7a8;
-$color-second: #e75735;
-$color-first-dark: #28a290;
-$color-second-dark: #bf3e1f;
-$color-disabled: #e5e5e5;
+$bp-xxl: 2560px;
 
-/***** Mixins *****/
-@mixin media-breakpoint-up($width) {
-  @media (min-width: $width + 1) {
-    @content;
-  }
-}
-
-@mixin media-breakpoint-down($width) {
-  @media (max-width: $width) {
-    @content;
-  }
-}
-
-@mixin media-breakpoint-between($min-width, $max-width) {
-  @media (min-width: $min-width + 1) and (max-width: $max-width) {
-    @content;
-  }
-}
-
-@mixin column($screen-width, $count) {
-  flex-shrink: 0;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
-
-  @include media-breakpoint-up($screen-width) {
-    flex-basis: (100% / 12 * $count);
-  }
-}
-
-@mixin firefox-only {
-  @at-root {
-    @-moz-document url-prefix() {
-      & {
-        @content;
-      }
-    }
-  }
-}
+@import "mixins.scss";

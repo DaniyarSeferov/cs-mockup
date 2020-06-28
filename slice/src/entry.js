@@ -1,6 +1,8 @@
 import './common/fonts.scss';
 import './common/normalize.scss';
+// import './common/mixins.scss';
 import './common/_helpers.scss';
+import './common/global.scss';
 
 function requireAll(requireContext) {
 	return requireContext.keys().map(requireContext);
