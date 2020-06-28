@@ -3,7 +3,7 @@
   z-index: 10;
   width: 100%;
   text-align: center;
-  overflow: hidden;
+  //overflow: hidden;
 
   //@include sm-down {
   //  position: fixed;
@@ -31,7 +31,7 @@
 
   .menu-wrap {
     margin-top: 30px;
-    padding: 4px 0;
+    //padding: 4px 0;
     background-image: linear-gradient(#B5B5B5 0%, #E6E6E6 20%, #4A4A4a 95%);
     border-radius: 10px;
   }

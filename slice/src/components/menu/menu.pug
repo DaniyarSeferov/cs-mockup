@@ -12,6 +12,11 @@ mixin menu(options)
   .menu-wrap
     nav
       ul.menu
-        for item in options.items
+        for itemInner in options.items
           li
-            a(href = item.href)= item.name
+            a(href = itemInner.href)= itemInner.name
+            if itemInner.items
+              ul
+                for itemInner2 in itemInner.items
+                  li
+                    a(href = itemInner2.href)= itemInner2.name
