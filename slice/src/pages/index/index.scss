@@ -1,5 +1,5 @@
 .btn-wrap {
-  margin: 28px 0 35px;
+  margin: 28px 0 100px;
   text-align: center;
 }
 
@@ -18,23 +18,22 @@
 
     .news-item {
       width: calc(33.333% - 40px);
-      margin: 0 20px 40px;
+      margin: 0 20px 20px;
     }
   }
 }
 
-.video-item-wrap {
-  background-color: white;
-  padding: 25px;
+.s-video {
 
-  .video-item {
-    float: left;
-    width: 550px;
-    //border: 1px solid black;
-    margin-right: 15px;
+  .video-item-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    background: $color-white;
 
-    &:last-child {
-      margin-right: 0;
+    .video-item {
+      width: calc(50%);
+      margin: 0;
     }
   }
 }

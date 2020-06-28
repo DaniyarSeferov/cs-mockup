@@ -1,7 +1,7 @@
 .b-news {
   //height: calc(100% - 30px);
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
   padding: 15px;
   background: $color-white;
   border: 1px solid #d8d8d8;
@@ -43,7 +43,7 @@
   }
 
   &__info {
-    margin-top: auto;
+    margin-top: 37px;
     font-size: 10px;
     color: $color-gray;
 
