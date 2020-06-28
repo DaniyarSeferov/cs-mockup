@@ -7,6 +7,10 @@
   border: 1px solid #d8d8d8;
   border-top: none;
 
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.30);
+  }
+
   .b-news__view {
     height: 180px;
     overflow: hidden;

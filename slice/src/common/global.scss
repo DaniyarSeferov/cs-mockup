@@ -13,8 +13,7 @@ body {
   font-family: $OpenSans;
   color: $color-black;
   background-color: $color-blue;
-  background-image: url("../images/bg-front.jpg");
-  background-position: center top;
+  //background: url("../images/bg-front.jpg") center center cover no-repeat fixed;
 }
 
 .outer-wrapper {
@@ -23,6 +22,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url("../images/bg-front.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .inner-wrapper {

@@ -8,4 +8,8 @@
   color: white;
   background: linear-gradient(#8D8D8D, #000);
   border-radius: 5px;
+
+  &:hover {
+    background: linear-gradient(#9D9D9D, #111);
+  }
 }
