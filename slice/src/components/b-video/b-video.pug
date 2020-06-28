@@ -11,7 +11,8 @@ mixin b-video(options)
 					src = './images/' + options.image,
 					alt = 'video image'
 				)
-		.b-video__description= options.data.desc || ''
+		.b-video__description
+			p= options.data.desc || ''
 		.b-video__info
 			span.b-video__date= options.data.date || ''
 			span
