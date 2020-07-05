@@ -42,19 +42,55 @@
  * @see html.html.twig
  */
 #}
-<div class="page-wr">
-  <div class="page-headers">
-    <div id="site-header">
-      {{ page.header_navigation }}
+<div class="outer-wrapper">
+  <header class="header">
+    <div class="header__social">
+      <div class="b-social">
+        <a class="b-social__btn b-social__btn-ok" href="https://ok.ru/">Одноклассники</a>
+        <a class="b-social__btn b-social__btn-vk" href="https://vk.com/htmlacademy">Вконтакте</a>
+        <a class="b-social__btn b-social__btn-fb" href="https://facebook.com/htmlacademy">Фейсбук</a>
+        <a class="b-social__btn b-social__btn-yt" href="https://www.youtube.com/">Ютуб</a>
+        <a class="b-social__btn b-social__btn-in" href="https://instagram.com/htmlacademy">Инстаграм</a>
+      </div>
     </div>
+    <div class="container">
+      <div class="menu-wrap">
+        {{ page.header_navigation }}
+      </div>
+    </div>
+    <div class="header__social header__social-right">
+      <div class="b-social">
+        <a class="b-social__btn b-social__btn-ok" href="https://ok.ru/">Одноклассники</a>
+        <a class="b-social__btn b-social__btn-vk" href="https://vk.com/htmlacademy">Вконтакте</a>
+        <a class="b-social__btn b-social__btn-fb" href="https://facebook.com/htmlacademy">Фейсбук</a>
+        <a class="b-social__btn b-social__btn-yt" href="https://www.youtube.com/">Ютуб</a>
+        <a class="b-social__btn b-social__btn-in" href="https://instagram.com/htmlacademy">Инстаграм</a>
+      </div>
+    </div>
+  </header>
 
-    {{ page.header }}
-  </div>{# /.page-headers #}
+  <section class="b-top">
+    <div class="container">
+      <h1>{{ "Федерация Крымского Стиля"|trans }}</h1>
+      <a class="b-top__logo" href="{{ front_page }}">
+        <img src="{{ theme_path }}/dist/images/logo.png">
+      </a>
+    </div>
+  </section>
 
-  <div class="page-in" role="main">
-    {{ page.content }}
-  </div>{# /.page-in #}
+  <div class="inner-wrapper">
+    <div class="content-wrapper">
+      <div class="container">
+        {{ page.content }}
 
-  {{ page.footer }}
-  {{ page.footer_navigation }}
+        <div class="footer">
+          <div class="footer__menu clearfix">
+            <div class="col">{{ page.footer_navigation }}</div>
+            <div class="col"></div>
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
