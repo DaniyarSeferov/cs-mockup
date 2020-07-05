@@ -2,7 +2,6 @@ name: 'Crimea Style Federation'
 type: theme
 description: 'Crimean Style Federation'
 package: Other
-core: 9.x
 libraries:
   - csf/global-styling
 
