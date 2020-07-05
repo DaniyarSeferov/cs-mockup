@@ -1,0 +1,212 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the csf theme.
+ */
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Link;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\node\Entity\NodeType;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\block\Entity\Block;
+use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\Xss;
+
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function csf_preprocess_html(array &$vars) {
+  $node = \Drupal::request()->attributes->get('node');
+
+  if ($node && is_object($node)) {
+    $vars['attributes']['class'][] = '';
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function csf_preprocess_page(array &$vars) {
+  $view_id = \Drupal::routeMatch()->getParameter('view_id');
+  $node = !empty($vars["node"]) ? $vars["node"] : '';
+
+  if (!empty($view_id)) {
+    switch ($view_id){
+      case '':
+
+        break;
+    }
+  }
+
+  if (!empty($node) && is_object($node)) {
+    switch ($node->bundle()) {
+      case '':
+        break;
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function csf_preprocess_node(array &$vars) {
+  $node = $vars['node'];
+  $view_mode = !empty($vars["view_mode"]) ? $vars["view_mode"] : '';
+
+  switch ($node->bundle()) {
+    case 'customer_success':
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function csf_preprocess_field(array &$vars) {
+  $view_mode = !empty($vars["element"]["#view_mode"]) ? $vars["element"]["#view_mode"] : '';
+  $disable_quick_edit_field_types = [
+    'image',
+    'link',
+    'field_collection',
+    'entity_reference_revisions'
+  ];
+
+  if (in_array($vars['field_type'], $disable_quick_edit_field_types)) {
+    if (isset($vars['attributes']['data-quickedit-field-id'])) {
+      unset($vars['attributes']['data-quickedit-field-id']);
+    }
+  }
+
+  $is_image_entity = ($vars['field_type'] == 'entity_reference') && !empty($vars["items"][0]["content"]["#theme"]) &&
+    ($vars["items"][0]["content"]["#theme"] == 'image_formatter');
+
+  if (($vars['field_type'] == 'image') || $is_image_entity) {
+    if (!empty($vars['items'][0]['content']['#item']->entity)) {
+      if (!empty($vars["items"][0]["content"]["#image_style"])) {
+        $style = $vars["items"][0]["content"]["#image_style"];
+        $img_file_uri = $vars['items'][0]['content']['#item']->entity->getFileUri();
+        $vars['image_url'] = ImageStyle::load($style)->buildUrl($img_file_uri);
+      }
+      else {
+        $vars['image_url'] = $vars['items'][0]['content']['#item']->entity->url();
+      }
+    }
+  }
+
+  switch ($vars['element']['#field_name']) {
+    case 'field_slide_desc':
+    case 'field_slide_link':
+      _csf_hide_quick_edit($vars);
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function csf_theme_suggestions_field_alter(array &$suggests, array $vars) {
+  $element = $vars['element'];
+
+  switch($element['#field_name']) {
+    case 'field_logo_logo':
+      $suggests[] = 'field__no_wrappers';
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function csf_preprocess_block(array &$vars) {
+  $block = !empty($vars["content"]["#block_content"]) ?
+    $vars["content"]["#block_content"] : '';
+  $bundle = !empty($block) ? $block->bundle() : '';
+
+  switch ($bundle) {
+    case 'promo_code':
+
+      break;
+  }
+
+  switch ($vars['elements']['#id']) {
+    case 'referafriendprogramanonymous':
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function csf_theme_suggestions_block_alter(array &$suggestions, array $vars) {
+
+  if (!empty($vars['elements']['content']) && !empty($vars['elements']['content']['#block_content'])) {
+    $bundle = $vars['elements']['content']['#block_content']->bundle();
+
+    $suggestions[] = 'block__' . $bundle;
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function csf_preprocess_paragraph(array &$vars) {
+  $paragraph = $vars["elements"]["#paragraph"];
+
+  switch ($paragraph->bundle()) {
+    case 'logo':
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function csf_form_alter(&$form, &$form_state, $form_id) {
+
+  switch ($form_id) {
+    case 'views_exposed_form':
+
+      break;
+  }
+}
+
+/**
+ * Helper function hide quick edit attributes in render array.
+ *
+ * @param $vars
+ */
+function _csf_hide_quick_edit(&$vars) {
+  if (!empty($vars['attributes']['data-quickedit-field-id'])) {
+    unset($vars['attributes']['data-quickedit-field-id']);
+  }
+}
+
+function csf_preprocess(&$vars, $hook) {
+  $vars['theme_path'] = base_path() . drupal_get_path('theme', 'csf');
+}
+
+/**
+ * Get block.
+ */
+function _csf_get_block($bid) {
+  $render = '';
+  $block = \Drupal\block\Entity\Block::load($bid);
+
+  if (!empty($block)) {
+    $render = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block);
+  }
+
+  return $render;
+}

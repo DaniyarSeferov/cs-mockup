@@ -1,0 +1,18 @@
+name: 'Crimea Style Federation'
+type: theme
+description: 'Crimean Style Federation'
+package: Other
+core: 8.x
+libraries:
+  - altium/global-styling
+
+base theme: classy
+
+regions:
+  header_navigation: Header Navigation
+  header: Header
+  main_menu: Main Menu
+  top_navigation: Top navigation
+  content: Content
+  footer: Footer
+  footer_navigation: Footer Navigation
