@@ -1,8 +1,7 @@
-import './index.scss'
+import './index.scss';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
-
-const $ = jQuery;
+import * as Masonry from 'masonry-layout/masonry';
 
 if (typeof Drupal !== "undefined" && Drupal.behaviors) {
 	Drupal.behaviors.ADNew = {
@@ -19,6 +18,7 @@ if (typeof Drupal !== "undefined" && Drupal.behaviors) {
 
 function init() {
 	initCarousels();
+	initGallery();
 }
 
 function initCarousels() {
@@ -61,4 +61,14 @@ function initCarousels() {
 			}
 		}
 	});
+}
+
+function initGallery() {
+	var grid = document.querySelector('.grid');
+	var msnry = new Masonry( grid, {
+		// options...
+		itemSelector: '.grid-item',
+		columnWidth: 200
+	});
+	console.log(msnry);
 }

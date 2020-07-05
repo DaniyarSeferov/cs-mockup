@@ -46,8 +46,9 @@ block main
 
 	+layout__section('s-gallery')
 		+s_title({title: gallery.title})
-		.gallery-item-wrap
+		div.grid
 			for item in gallery.items
-				img(src= item)
+				.grid-item
+					img(src= './images/' + item.thumb)
 		.btn-wrap
 			+button({title: "Все фотографии"})

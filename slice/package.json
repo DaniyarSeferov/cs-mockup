@@ -36,9 +36,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
-    "jquery": "^3.5.0",
+    "masonry-layout": "^4.2.2",
     "normalize.css": "^8.0.1",
-    "owl.carousel": "^2.3.4",
-    "unitegallery": "^1.7.28"
+    "owl.carousel": "^2.3.4"
   }
 }
