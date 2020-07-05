@@ -1,6 +1,6 @@
 name: 'Crimea Style Federation'
 type: theme
-description: 'Crimean Style Federation'
+description: 'Crimea Style Federation'
 package: Other
 core: 8.x
 core_version_requirement: ^8 || ^9

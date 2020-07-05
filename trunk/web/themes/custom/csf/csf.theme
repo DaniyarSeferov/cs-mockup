@@ -96,7 +96,7 @@ function csf_preprocess_field(array &$vars) {
         $vars['image_url'] = ImageStyle::load($style)->buildUrl($img_file_uri);
       }
       else {
-        $vars['image_url'] = $vars['items'][0]['content']['#item']->entity->url();
+//        $vars['image_url'] = $vars['items'][0]['content']['#item']->entity->url();
       }
     }
   }
