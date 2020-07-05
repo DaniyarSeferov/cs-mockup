@@ -2,9 +2,9 @@ name: 'Crimea Style Federation'
 type: theme
 description: 'Crimean Style Federation'
 package: Other
-core: 8.x
+core: 9.x
 libraries:
-  - altium/global-styling
+  - csf/global-styling
 
 base theme: classy
 
