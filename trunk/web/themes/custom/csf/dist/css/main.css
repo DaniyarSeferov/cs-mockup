@@ -277,6 +277,9 @@ body {
     content: " ";
     display: table; }
 
+.owl-carousel .owl-nav {
+  line-height: 0; }
+
 .b-news {
   padding: 15px;
   background: #FFF;

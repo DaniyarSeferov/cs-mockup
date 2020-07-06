@@ -37,7 +37,7 @@ function csf_preprocess_page(array &$vars) {
   $node = !empty($vars["node"]) ? $vars["node"] : '';
 
   if (!empty($view_id)) {
-    switch ($view_id){
+    switch ($view_id) {
       case '':
 
         break;
@@ -76,7 +76,7 @@ function csf_preprocess_field(array &$vars) {
     'image',
     'link',
     'field_collection',
-    'entity_reference_revisions'
+    'entity_reference_revisions',
   ];
 
   if (in_array($vars['field_type'], $disable_quick_edit_field_types)) {
@@ -96,7 +96,7 @@ function csf_preprocess_field(array &$vars) {
         $vars['image_url'] = ImageStyle::load($style)->buildUrl($img_file_uri);
       }
       else {
-//        $vars['image_url'] = $vars['items'][0]['content']['#item']->entity->url();
+        //        $vars['image_url'] = $vars['items'][0]['content']['#item']->entity->url();
       }
     }
   }
@@ -115,7 +115,7 @@ function csf_preprocess_field(array &$vars) {
 function csf_theme_suggestions_field_alter(array &$suggests, array $vars) {
   $element = $vars['element'];
 
-  switch($element['#field_name']) {
+  switch ($element['#field_name']) {
     case 'field_logo_logo':
       $suggests[] = 'field__no_wrappers';
       break;
@@ -162,8 +162,11 @@ function csf_preprocess_paragraph(array &$vars) {
   $paragraph = $vars["elements"]["#paragraph"];
 
   switch ($paragraph->bundle()) {
-    case 'logo':
-
+    case 'sponsors':
+      $link = !empty($vars["content"]["field_sponsors_url"]) &&
+        !empty($vars["content"]["field_sponsors_url"][0]) ?
+        $vars["content"]["field_sponsors_url"][0]["#url"] : '';
+      $vars['link'] = !empty($link) ? $link->toString() : '#';
       break;
   }
 }
