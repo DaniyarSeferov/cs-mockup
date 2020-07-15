@@ -1,3 +1,5 @@
+import './bootstrap/bootstrap';
+import './bootstrap/bootstrap.scss';
 import './common/fonts.scss';
 import './common/normalize.scss';
 // import './common/mixins.scss';

@@ -65,10 +65,9 @@ function initCarousels() {
 
 function initGallery() {
 	var grid = document.querySelector('.grid');
-	var msnry = new Masonry( grid, {
-		// options...
+	var msnry = new Masonry('.grid', {
 		itemSelector: '.grid-item',
-		columnWidth: 200
+
 	});
 	console.log(msnry);
 }

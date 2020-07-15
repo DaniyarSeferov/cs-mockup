@@ -46,7 +46,7 @@ block main
 
 	+layout__section('s-gallery')
 		+s_title({title: gallery.title})
-		div.grid
+		.grid.no-gutters
 			for item in gallery.items
 				.grid-item
 					img(src= './images/' + item.thumb)

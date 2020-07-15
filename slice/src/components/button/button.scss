@@ -2,7 +2,7 @@
   display: inline-block;
   font-size: 19px;
   padding: 10px 15px;
-  width: 152px;
+  width: 185px;
   text-decoration: none;
   text-align: center;
   color: white;
@@ -10,6 +10,8 @@
   border-radius: 5px;
 
   &:hover {
+    color: white;
     background: linear-gradient(#9D9D9D, #111);
+    text-decoration: none;
   }
 }

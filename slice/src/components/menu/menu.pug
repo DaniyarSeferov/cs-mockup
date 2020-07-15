@@ -10,13 +10,16 @@ mixin menu(options)
     - options.items = []
 
   .menu-wrap
-    nav
-      ul.menu
-        for itemInner in options.items
-          li
-            a(href = itemInner.href)= itemInner.name
-            if itemInner.items
-              ul
-                for itemInner2 in itemInner.items
-                  li
-                    a(href = itemInner2.href)= itemInner2.name
+    nav.navbar.navbar-expand-md.sticky-top
+      button.navbar-toggler(type = 'button', data-toggle = 'collapse', data-target = '#navbarResponsive')
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarResponsive
+        ul.menu.navbar-nav.ml-auto
+          for itemInner in options.items
+            li.nav-item
+              a.nav-link(href = itemInner.href)= itemInner.name
+              if itemInner.items
+                ul
+                  for itemInner2 in itemInner.items
+                    li
+                      a(href = itemInner2.href)= itemInner2.name
