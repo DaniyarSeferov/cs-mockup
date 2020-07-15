@@ -6,6 +6,7 @@ import './common/theme_settings.css';
 import './common/layers.css';
 import './common/navigation.css';
 import './common/style.css';
+import './common/global.scss';
 
 function requireAll(requireContext) {
 	return requireContext.keys().map(requireContext);
