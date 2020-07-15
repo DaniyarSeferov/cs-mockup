@@ -2,9 +2,10 @@ import './bootstrap/bootstrap';
 import './bootstrap/bootstrap.scss';
 import './common/fonts.scss';
 import './common/normalize.scss';
-// import './common/mixins.scss';
-import './common/_helpers.scss';
-import './common/global.scss';
+import './common/theme_settings.css';
+import './common/layers.css';
+import './common/navigation.css';
+import './common/style.css';
 
 function requireAll(requireContext) {
 	return requireContext.keys().map(requireContext);

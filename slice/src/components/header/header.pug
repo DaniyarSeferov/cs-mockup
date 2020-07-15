@@ -8,10 +8,14 @@ mixin header(options)
   if !options
     - options = {}
 
-  header.header
+  header.header.clearfix
     .header__social
       +b-social({items: options.socialItems})
-    .container
-      +menu({items: options.menuItems})
+    nav.navbar.navbar-expand-lg.navbar-light
+      .container
+        .navbar-header.menu-wrap
+          button.navbar-toggler.collapsed(type="button", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1")
+            span.navbar-toggler-icon
+          +menu({items: options.menuItems})
     .header__social.header__social-right
       +b-social({items: options.socialItems})

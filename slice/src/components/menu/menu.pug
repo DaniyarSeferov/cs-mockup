@@ -9,17 +9,13 @@ mixin menu(options)
   if !options.items
     - options.items = []
 
-  .menu-wrap
-    nav.navbar.navbar-expand-md.sticky-top
-      button.navbar-toggler(type = 'button', data-toggle = 'collapse', data-target = '#navbarResponsive')
-        span.navbar-toggler-icon
-      .collapse.navbar-collapse#navbarResponsive
-        ul.menu.navbar-nav.ml-auto
-          for itemInner in options.items
-            li.nav-item
-              a.nav-link(href = itemInner.href)= itemInner.name
-              if itemInner.items
-                ul
-                  for itemInner2 in itemInner.items
-                    li
-                      a(href = itemInner2.href)= itemInner2.name
+  .collapse.navbar-collapse#bs-example-navbar-collapse-1
+    ul.menu.navbar-nav.mr-auto
+      for itemInner in options.items
+        li.nav-item
+          a.nav-link(href = itemInner.href)= itemInner.name
+          if itemInner.items
+            ul
+              for itemInner2 in itemInner.items
+                li
+                  a(href = itemInner2.href)= itemInner2.name
