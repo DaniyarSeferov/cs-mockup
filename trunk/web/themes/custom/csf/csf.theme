@@ -51,6 +51,9 @@ function csf_preprocess_page(array &$vars) {
     }
   }
 
+  $vars['social'] = [
+    '#theme' => 'csf_custom_social'
+  ];
 }
 
 /**

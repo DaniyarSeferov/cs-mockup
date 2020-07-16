@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Contains csf_custom.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function csf_custom_theme() {
+
+  return [
+    'csf_custom_social' => [
+      'variables' => [
+        'class' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function csf_custom_preprocess_csf_custom_social(&$vars) {
+  $social_map = _csf_custom_social_map();
+  $social_config = \Drupal::configFactory()->getEditable('csf_custom.settings');
+  $vars['social'] = [];
+
+  foreach ($social_map as $id => $data) {
+    $url = $social_config->get($id);
+    if (!empty($url)) {
+      $vars['social'][$id] = $data;
+      $vars['social'][$id]['url'] = $url;
+    }
+  }
+}
+
+/**
+ * Social map.
+ * @return array
+ */
+function _csf_custom_social_map() {
+  return [
+    'odnoklassniki' => [
+      'title' => t('Одноклассники'),
+      'class' => 'b-social__btn-ok',
+    ],
+    'vkontakte' => [
+      'title' => t('ВКонтакте'),
+      'class' => 'b-social__btn-vk',
+    ],
+    'facebook' => [
+      'title' => t('Facebook'),
+      'class' => 'b-social__btn-fb',
+    ],
+    'youtube' => [
+      'title' => t('YouTube'),
+      'class' => 'b-social__btn-yt',
+    ],
+    'instagram' => [
+      'title' => t('Instagram'),
+      'class' => 'b-social__btn-in',
+    ],
+  ];
+}

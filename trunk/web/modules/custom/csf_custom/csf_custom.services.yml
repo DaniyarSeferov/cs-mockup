@@ -1,0 +1,5 @@
+services:
+  csf_custom.route_subscriber:
+    class: Drupal\csf_custom\Routing\ManageCustomRoutes
+    tags:
+      - { name: event_subscriber }

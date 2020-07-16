@@ -1,0 +1,5 @@
+<div class="b-social">
+  {% for social_item in social %}
+    <a class="b-social__btn {{ social_item.class }}" href="{{ social_item.url }}" target="_blank">{{ social_item.title }}</a>
+  {% endfor %}
+</div>
