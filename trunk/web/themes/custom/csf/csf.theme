@@ -61,8 +61,20 @@ function csf_preprocess_node(array &$vars) {
   $view_mode = !empty($vars["view_mode"]) ? $vars["view_mode"] : '';
 
   switch ($node->bundle()) {
-    case 'customer_success':
-
+    case 'video':
+      $video = !empty($vars["content"]["field_video_youtube"]) &&
+        !empty($vars["content"]["field_video_youtube"]["#items"]) ?
+        $vars["content"]["field_video_youtube"]['#items']->first()->get('entity')->getValue() : '';
+      if ($video->hasField('field_media_oembed_video')) {
+        $video = $video->get('field_media_oembed_video');
+        $video = $video->getValue();
+        if (!empty($video) && !empty($video[0])) {
+          $video_id = _csf_get_youtube_id_from_url($video[0]["value"]);
+          if (!empty($video_id)) {
+            $vars["video_url"] = 'http://www.youtube.com/embed/' . $video_id;
+          }
+        }
+      }
       break;
   }
 }
@@ -212,4 +224,15 @@ function _csf_get_block($bid) {
   }
 
   return $render;
+}
+
+/**
+ * Get Youtube id.
+ * @param $url
+ *
+ * @return mixed|string
+ */
+function _csf_get_youtube_id_from_url($url)  {
+  preg_match('/(http(s|):|)\/\/(www\.|)yout(.*?)\/(embed\/|watch.*?v=|)([a-z_A-Z0-9\-]{11})/i', $url, $results);
+  return !empty($results[6]) ? $results[6] : '';
 }
