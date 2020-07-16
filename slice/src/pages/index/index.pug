@@ -5,6 +5,7 @@ include ../../components/b-video/b-video
 include ../../components/s-title/s-title
 include ../../components/button/button
 include ../../components/b-sponsors/b-sponsors
+include ../../components/video-modal/video-modal
 
 block title
 	| Main
@@ -52,3 +53,5 @@ block main
 					img(src= './images/' + item.thumb)
 		.btn-wrap
 			+button({title: "Все фотографии"})
+
+	+video-modal()

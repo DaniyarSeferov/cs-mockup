@@ -1,0 +1,10 @@
+mixin video-modal()
+	.modal.fade#videoModal(tabindex="-1", role="dialog", aria-labelledby="videoModal", aria-hidden="true")
+		.modal-dialog.modal-dialog-centered
+			.modal-content
+				.modal__header
+					.modal__header-title
+					button.close(type="button", data-dismiss="modal", aria-hidden="true")
+						| &times;
+				.modal-body
+					iframe(width="560", height="350", src="")

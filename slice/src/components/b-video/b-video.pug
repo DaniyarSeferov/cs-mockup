@@ -5,7 +5,7 @@ mixin b-video(options)
 		- options.data = {}
 
 	.b-video
-		a.b-video__view(href='#')
+		a.b-video__view(href='#', data-toggle="modal", data-target="#videoModal", data-video="http://www.youtube.com/embed/loFtozxZG0s")
 			if options.image
 				img.b-video__image(
 					src = './images/' + options.image,

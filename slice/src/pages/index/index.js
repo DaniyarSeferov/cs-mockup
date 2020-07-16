@@ -2,6 +2,7 @@ import './index.scss';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 import * as Masonry from 'masonry-layout/masonry';
+import VideoModal from "../../components/video-modal/video-modal";
 
 if (typeof Drupal !== "undefined" && Drupal.behaviors) {
 	Drupal.behaviors.ADNew = {
@@ -19,6 +20,7 @@ if (typeof Drupal !== "undefined" && Drupal.behaviors) {
 function init() {
 	initCarousels();
 	initGallery();
+	new VideoModal();
 }
 
 function initCarousels() {
@@ -67,7 +69,5 @@ function initGallery() {
 	var grid = document.querySelector('.grid');
 	var msnry = new Masonry('.grid', {
 		itemSelector: '.grid-item',
-
 	});
-	console.log(msnry);
 }

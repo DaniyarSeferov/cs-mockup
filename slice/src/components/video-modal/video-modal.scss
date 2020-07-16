@@ -1,0 +1,47 @@
+.modal {
+  $this: &;
+  max-height: 100vh;
+
+  &__header {
+    background: #484848;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 26px;
+
+    .theme-light & {
+      background: #F5F5F5;
+    }
+
+    &-title {
+      font-size: 12px;
+      font-family: $OpenSans;
+      font-weight: 600;
+      color: #fff;
+
+      @media (min-width: $bp-small) {
+        font-size: 16px;
+      }
+
+      @media (min-width: $bp-middle) {
+        font-size: 18px;
+      }
+
+      .theme-light & {
+        color: $color-black;
+      }
+    }
+
+    .close {
+      justify-self: end;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .modal-dialog {
+      max-width: 592px;
+      margin: 1.75rem auto;
+    }
+  }
+}
