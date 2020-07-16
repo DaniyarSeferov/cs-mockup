@@ -74,7 +74,7 @@ function csf_preprocess_node(array &$vars) {
         if (!empty($video) && !empty($video[0])) {
           $video_id = _csf_get_youtube_id_from_url($video[0]["value"]);
           if (!empty($video_id)) {
-            $vars["video_url"] = 'http://www.youtube.com/embed/' . $video_id;
+            $vars["video_url"] = 'https://www.youtube.com/embed/' . $video_id;
           }
         }
       }
