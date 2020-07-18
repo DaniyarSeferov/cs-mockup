@@ -20,7 +20,7 @@ html
       block title
 
     include lib
-  body
+  body(class= bodyClass)
     .outer-wrapper
       block header
         +header({menuItems: locals.menuItems, socialItems: locals.socialItems})

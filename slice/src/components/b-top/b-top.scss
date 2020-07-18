@@ -1,8 +1,13 @@
 .b-top {
+
+  .path-frontpage & {
+    min-height: 1230px;
+    background-image: url(../../images/header.jpg);
+  }
+
+  min-height: 465px;
   position: relative;
-  min-height: 1230px;
   padding-top: 90px;
-  background-image: url(../../images/header.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

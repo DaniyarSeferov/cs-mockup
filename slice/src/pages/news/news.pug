@@ -1,0 +1,14 @@
+extends ../base/base
+
+include ../../components/s-title/s-title
+include ../../components/button/button
+
+block title
+	| News
+
+block variables
+	- bodyClass = 'page-node-type-news'
+
+block main
+	- data = htmlWebpackPlugin.options.getData()
+	- news = data.news || {}

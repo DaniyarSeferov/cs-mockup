@@ -22,13 +22,17 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url("../images/bg-front.jpg");
-  background-position: center center;
+  background-image: url("../images/bg.jpg");
+  background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
+
+  .path-frontpage & {
+    background-image: url("../images/bg-front.jpg");
+  }
 }
 
-.inner-wrapper {
+.path-frontpage .inner-wrapper {
   background: linear-gradient(rgb(0, 0, 0) 0%, rgba(255, 0, 0, 0) 4%);
 }
 

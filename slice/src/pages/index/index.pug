@@ -10,6 +10,9 @@ include ../../components/video-modal/video-modal
 block title
 	| Main
 
+block variables
+	- bodyClass = 'path-frontpage'
+
 block main
 	- data = htmlWebpackPlugin.options.getData()
 	- news = data.news || {}
