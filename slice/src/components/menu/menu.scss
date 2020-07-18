@@ -60,6 +60,8 @@
       > li {
         display: block;
         padding: 5px 10px;
+        max-width: none;
+        text-align: left;
         border-bottom: 1px solid $color-white;
 
         &:hover {
@@ -71,9 +73,16 @@
         }
 
         a {
+          height: auto;
+          display: inline;
+          padding: 0;
           text-decoration: none;
           text-transform: none;
           color: $color-black;
+
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
     }
