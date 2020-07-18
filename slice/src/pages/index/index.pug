@@ -48,9 +48,15 @@ block main
 	+layout__section('s-gallery')
 		+s_title({title: gallery.title})
 		.grid.no-gutters
-			for item in gallery.items
-				.grid-item
-					img(src= './images/' + item.thumb)
+			.grid-sizer
+			for item, index in gallery.items
+				- var isFive = index % 5
+				if isFive
+					.grid-item
+						img(src= './images/' + item.thumb)
+				else
+					.grid-item.grid-item--width2
+						img(src= './images/' + item.thumb)
 		.btn-wrap
 			+button({title: "Все фотографии"})
 
