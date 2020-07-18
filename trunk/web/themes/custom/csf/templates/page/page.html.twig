@@ -74,10 +74,14 @@
         <div class="footer">
           <div class="footer__menu clearfix">
             {{ page.footer_navigation }}
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
           </div>
+
+          <div class="footer__logo">
+            <img src="{{ theme_path }}/dist/images/footer_logo.png">
+            <span class="footer__promo">{{ "Федерация Крымского Стиля"|trans }}</span>
+            {{ social }}
+          </div>
+          <div class="footer__copyright">&copy; {{ "now"|date("Y") }} {{ "Все права защищены"|trans }}</div>
         </div>
       </div>
     </div>
