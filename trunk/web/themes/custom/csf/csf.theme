@@ -52,7 +52,7 @@ function csf_preprocess_page(array &$vars) {
   }
 
   $vars['social'] = [
-    '#theme' => 'csf_custom_social'
+    '#theme' => 'csf_custom_social',
   ];
 }
 
@@ -66,8 +66,10 @@ function csf_preprocess_node(array &$vars) {
   switch ($node->bundle()) {
     case 'video':
       $video = !empty($vars["content"]["field_video_youtube"]) &&
-        !empty($vars["content"]["field_video_youtube"]["#items"]) ?
-        $vars["content"]["field_video_youtube"]['#items']->first()->get('entity')->getValue() : '';
+      !empty($vars["content"]["field_video_youtube"]["#items"]) ?
+        $vars["content"]["field_video_youtube"]['#items']->first()
+          ->get('entity')
+          ->getValue() : '';
       if ($video->hasField('field_media_oembed_video')) {
         $video = $video->get('field_media_oembed_video');
         $video = $video->getValue();
@@ -152,8 +154,9 @@ function csf_preprocess_block(array &$vars) {
   }
 
   switch ($vars['elements']['#id']) {
-    case 'referafriendprogramanonymous':
-
+    case 'csf_main_menu':
+    case 'mainnavigation':
+      $vars['content']['#attributes']['block'] = $vars['elements']['#id'];
       break;
   }
 }
@@ -179,9 +182,15 @@ function csf_preprocess_paragraph(array &$vars) {
   switch ($paragraph->bundle()) {
     case 'sponsors':
       $link = !empty($vars["content"]["field_sponsors_url"]) &&
-        !empty($vars["content"]["field_sponsors_url"][0]) ?
+      !empty($vars["content"]["field_sponsors_url"][0]) ?
         $vars["content"]["field_sponsors_url"][0]["#url"] : '';
       $vars['link'] = !empty($link) ? $link->toString() : '#';
+      break;
+    case 'gallery_images':
+      $is_big = !empty($vars["content"]["field_gallery_images_x2"]) &&
+      !empty($vars["content"]["field_gallery_images_x2"][0]) ?
+        $vars["content"]["field_gallery_images_x2"]['#items']->getValue() : '';
+      $vars['is_big'] = !empty($is_big) && !empty($is_big[0]) ? $is_big[0]["value"] : '';
       break;
   }
 }
@@ -231,11 +240,27 @@ function _csf_get_block($bid) {
 
 /**
  * Get Youtube id.
+ *
  * @param $url
  *
  * @return mixed|string
  */
-function _csf_get_youtube_id_from_url($url)  {
+function _csf_get_youtube_id_from_url($url) {
   preg_match('/(http(s|):|)\/\/(www\.|)yout(.*?)\/(embed\/|watch.*?v=|)([a-z_A-Z0-9\-]{11})/i', $url, $results);
   return !empty($results[6]) ? $results[6] : '';
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function csf_theme_suggestions_menu_alter(array &$suggestions, array $vars) {
+  if (!empty($vars['attributes']) && !empty($vars['attributes']['block'])) {
+    $hook = str_replace(['block-', '-'], [
+      '',
+      '_',
+    ], $vars['attributes']['block']);
+    $block = \Drupal\block\Entity\Block::load($hook);
+    $region = !empty($block) && is_object($block) ? $block->getRegion() : '';
+    $suggestions[] = $vars['theme_hook_original'] . '__' . $region . '__' . $hook;
+  }
 }
