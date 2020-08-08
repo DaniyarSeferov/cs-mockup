@@ -7,8 +7,22 @@ block title
 	| News
 
 block variables
-	- bodyClass = 'page-node-type-news'
+	- bodyClass = 'page-node-type-news with-sidebar'
+
+block sidebar
+	- data = htmlWebpackPlugin.options.getData()
+	- news = data.news || {}
+
+	+b-news-sidebar(news)
 
 block main
 	- data = htmlWebpackPlugin.options.getData()
 	- news = data.news || {}
+
+	.news
+		h1
+			= news.items[0].data.title
+		img(src='images/' + news.items[0].image)
+		p
+			= news.items[0].data.desc
+		+b-info(news.items[0])

@@ -1,0 +1,17 @@
+mixin b-news-sidebar(options)
+	if !options
+		- options = {}
+	if !options.items
+		- options.items = {}
+
+	.sidebar
+		.container
+			h2 ПОПУЛЯРНЫЕ НОВОСТИ
+
+			.sidebar__news
+				for item in options.items
+					- data = item.data || {}
+					.sidebar__item
+						a(href='#')= data.title
+						.sidebar__info
+							+b-info(item)

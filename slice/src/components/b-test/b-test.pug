@@ -1,0 +1,7 @@
+mixin b-test(options)
+	if !options
+		- options = {}
+	if !options.data
+		- options.data = {}
+
+	.test

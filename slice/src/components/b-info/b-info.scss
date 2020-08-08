@@ -1,0 +1,40 @@
+.b-info {
+
+  font-size: 10px;
+  color: $color-gray;
+
+  span {
+    margin-right: 10px;
+  }
+
+  &__date {
+
+  }
+
+  & &__watches {
+    float: right;
+    margin-right: 0;
+    line-height: 1;
+
+    svg {
+      margin: -2px 4px 0 0;
+      vertical-align: middle;
+    }
+  }
+
+  &__likes {
+    line-height: 1;
+    color: $color-dark-blue;
+    cursor: pointer;
+
+    svg {
+      margin-top: -2px;
+      vertical-align: middle;
+    }
+
+    path {
+      fill: transparent;
+      stroke: #1f84c8;
+    }
+  }
+}

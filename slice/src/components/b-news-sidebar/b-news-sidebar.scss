@@ -1,0 +1,31 @@
+.sidebar {
+  width: 360px;
+  float: left;
+  background-color: $color-white;
+  border: solid 1px #999999;
+
+  &.sidebar-absolute {
+    //position: absolute;
+  }
+
+  h2 {
+    margin: 25px 0 7px;
+    text-align: center;
+  }
+
+  &__news {
+    padding: 18px;
+  }
+
+  &__item {
+    margin-bottom: 65px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    margin-top: 10px;
+  }
+}

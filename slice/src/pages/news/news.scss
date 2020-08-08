@@ -1,0 +1,17 @@
+.news {
+  max-width: 790px;
+  padding: 18px;
+  float: left;
+  margin-right: 18px;
+  background-color: $color-white;
+  border: solid 1px #999999;
+
+  h1 {
+    margin: 0 0 28px 0;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}

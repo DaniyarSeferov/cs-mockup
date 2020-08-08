@@ -5,6 +5,8 @@ include ../../components/layout/layout
 include ../../components/header/header
 include ../../components/b-top/b-top
 include ../../components/footer/footer
+include ../../components/b-news-sidebar/b-news-sidebar
+include ../../components/b-info/b-info
 
 doctype html
 html
@@ -28,8 +30,9 @@ html
         +b-top()
       .inner-wrapper
         .content-wrapper
-          .container
+          .container.clearfix
             block main
-            block footer
-              +footer({items: locals.footerItems, socialItems: locals.socialItems})
+            block sidebar
+      block footer
+        +footer({items: locals.footerItems, socialItems: locals.socialItems})
     block scripts

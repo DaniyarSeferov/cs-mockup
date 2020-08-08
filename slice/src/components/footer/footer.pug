@@ -13,24 +13,25 @@ mixin footer(options)
 		- options.socialItems = []
 
 	.footer
-		.footer__menu.clearfix
-			for item in options.items
-				.col
-					ul
-						for itemInner in item
-							li
-								a.footer__nav-item(href = itemInner.href)= itemInner.name
-								if itemInner.items
-									ul
-										for itemInner2 in itemInner.items
-											li
-												a.footer__nav-item(href = itemInner2.href)= itemInner2.name
+		.container
+			.footer__menu.clearfix
+				for item in options.items
+					.col
+						ul
+							for itemInner in item
+								li
+									a.footer__nav-item(href = itemInner.href)= itemInner.name
+									if itemInner.items
+										ul
+											for itemInner2 in itemInner.items
+												li
+													a.footer__nav-item(href = itemInner2.href)= itemInner2.name
 
-		.footer__logo
-			img(src= "../../images/footer_logo.png")
-			span.footer__promo
-				| Федерация Крымского Стиля
-			+b-social({items: options.socialItems})
+			.footer__logo
+				img(src= "../../images/footer_logo.png")
+				span.footer__promo
+					| Федерация Крымского Стиля
+				+b-social({items: options.socialItems})
 
-		.footer__copyright
-			| &copy; 2020 Все права защищены
+			.footer__copyright
+				| &copy; 2020 Все права защищены
