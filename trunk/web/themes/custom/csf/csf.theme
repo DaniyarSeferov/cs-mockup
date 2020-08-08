@@ -25,7 +25,11 @@ function csf_preprocess_html(array &$vars) {
   $node = \Drupal::request()->attributes->get('node');
 
   if ($node && is_object($node)) {
-    $vars['attributes']['class'][] = '';
+    switch ($node->bundle()) {
+      case 'news':
+        $vars['attributes']['class'][] = 'with-sidebar';
+        break;
+    }
   }
 }
 
@@ -46,7 +50,8 @@ function csf_preprocess_page(array &$vars) {
 
   if (!empty($node) && is_object($node)) {
     switch ($node->bundle()) {
-      case '':
+      case 'news':
+        $vars['content_class'] = 'news';
         break;
     }
   }

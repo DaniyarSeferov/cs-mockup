@@ -68,24 +68,43 @@
 
   <div class="inner-wrapper">
     <div class="content-wrapper">
+      {% set container_class = page.sidebar ? clearfix %}
       <div class="container">
+        {% if content_class %}
+          <div class="{{ content_class }}">
+        {% endif %}
+
         {{ page.content }}
 
-        <div class="footer">
-          <div class="footer__menu clearfix">
-            {{ page.footer_navigation }}
+        {% if content_class %}
           </div>
+        {% endif %}
 
-          <div class="footer__logo">
-            <a href="{{ front_page }}">
-              <img src="{{ theme_path }}/dist/images/footer_logo.png">
-            </a>
-            <span class="footer__promo">{{ "Федерация Крымского Стиля"|trans }}</span>
-            {{ social }}
+        {% if page.sidebar %}
+          <div class="sidebar">
+            <div class="container">
+            {{ page.sidebar }}
+            </div>
           </div>
-          <div class="footer__copyright">&copy; {{ "now"|date("Y") }} {{ "Все права защищены"|trans }}</div>
-        </div>
+        {% endif %}
       </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="footer__menu clearfix">
+        {{ page.footer_navigation }}
+      </div>
+
+      <div class="footer__logo">
+        <a href="{{ front_page }}">
+          <img src="{{ theme_path }}/dist/images/footer_logo.png">
+        </a>
+        <span class="footer__promo">{{ "Федерация Крымского Стиля"|trans }}</span>
+        {{ social }}
+      </div>
+      <div class="footer__copyright">&copy; {{ "now"|date("Y") }} {{ "Все права защищены"|trans }}</div>
     </div>
   </div>
 </div>
