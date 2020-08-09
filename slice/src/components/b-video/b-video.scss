@@ -1,8 +1,39 @@
 .b-video {
+  width: 583px;
+  height: 456px;
+  display: flex;
+  flex-direction: column;
   padding: 15px;
   background: $color-white;
+  overflow: hidden;
   //border: 1px solid #d8d8d8;
   //border-top: none;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+
+    &-in {
+      max-height: 85px;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(to top, #fff 0, rgba(255, 255, 255, 1e-16) 100%);
+        transition: background .3s;
+      }
+    }
+  }
 
   &__view {
     position: relative;
@@ -56,7 +87,7 @@
   }
 
   &__info {
-    margin-top: 37px;
+    margin-top: auto;
     font-size: 10px;
     color: $color-gray;
 

@@ -3,11 +3,19 @@ mixin b-info(options)
 		- options = {}
 	if !options.data
 		- options.data = {}
+	if !options.isVideo
+		- options.isVideo = false
 
 	.b-info
 		span.b-info__date= options.data.date || ''
 		span
 			| &bull;
+		if options.isVideo
+			span
+				include ../../images/icon-time-2.svg
+				| &nbsp;3:04
+			span
+				| &bull;
 		span.b-info__likes
 			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M5 12V6.36992C5 6.13121 5.08539 5.90038 5.24074 5.71913L7.76406 2.77527C7.91381 2.60055 8.13243 2.5 8.36255 2.5C8.91291 2.5 9.29386 3.04971 9.10061 3.56503L8.50667 5.14888C8.26151 5.80263 8.74479 6.5 9.443 6.5H12.044C12.7457 6.5 13.2292 7.20398 12.9773 7.85898L11.7396 11.0769C11.294 12.2355 10.1809 13 8.9396 13H6C5.44772 13 5 12.5523 5 12Z" stroke="#757575"/>
