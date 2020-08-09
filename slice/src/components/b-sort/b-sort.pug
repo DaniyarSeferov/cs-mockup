@@ -1,0 +1,15 @@
+mixin b-sort(options)
+	if !options
+		- options = {}
+	if !options.data
+		- options.data = [2020, 2019, 2018, 2017, 2016, 2015, 2014]
+
+	.b-sort
+		.b-sort__items
+			for year in options.data
+				.b-sort__item
+					.b-sort__title=year
+					.b-sort__body
+						a(href='#') Декабрь
+						a Ноябрь
+						a Октябрь

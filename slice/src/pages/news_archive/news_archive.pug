@@ -2,12 +2,14 @@ extends ../base/base
 
 include ../../components/s-title/s-title
 include ../../components/button/button
+include ../../components/b-news/b-news
+include ../../components/b-pager/b-pager
 
 block title
 	| News
 
 block variables
-	- bodyClass = 'page-node-type-news with-sidebar'
+	- bodyClass = 'page-news-archive with-sidebar'
 
 block sidebar
 	- data = htmlWebpackPlugin.options.getData()
@@ -15,16 +17,16 @@ block sidebar
 
 	.sidebar
 		.container
-			+b-news-sidebar(news)
+			.b-sort-wrapper
+				+b-sort(news)
 
 block main
 	- data = htmlWebpackPlugin.options.getData()
 	- news = data.news || {}
 
 	.news
-		h1
-			= news.items[0].data.title
-		img(src='images/' + news.items[0].image)
-		p
-			= news.items[0].data.desc
-		+b-info(news.items[0])
+		.news-archive-item-wrap
+			for item in news.items
+				.news-item
+					+b-news(item)
+			+b-pager(item)

@@ -1,0 +1,80 @@
+.b-sort {
+  $this: &;
+
+  &__title {
+    font-size: 12px;
+    color: $color-gray;
+    padding: 8px 0;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      //@include pseudo-block($top: 50%, $right: 0);
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%) rotate(179deg);
+      width: 13px;
+      height: 7px;
+      margin-left: 10px;
+      background: url('arrow-png-shore-more.png') no-repeat;
+      background-size: contain;
+      margin-top: -1px;
+
+      #{$this}_open & {
+        transform: translate(0, -50%);
+      }
+    }
+
+    &::before {
+      //@include pseudo-block($top: 0, $left: -10px, $right: -10px);
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -10px;
+      left: -10px;
+      height: 100%;
+      background: $color-gray-light;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity .3s;
+      z-index: -1;
+    }
+  }
+
+  &__body {
+    display: none;
+
+    a {
+      font-size: 12px;
+      font-style: italic;
+      color: #888888;
+      display: block;
+      padding: 2px 10px 2px 18px;
+      text-decoration: none;
+      margin: 9.5px 0;
+      border-radius: 5px;
+
+      &:hover, &.bef-link-active {
+        background: $color-gray-light;
+      }
+
+      &:first-child {
+        margin-top: 3px;
+      }
+
+      &:last-child {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}

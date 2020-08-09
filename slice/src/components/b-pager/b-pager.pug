@@ -1,0 +1,34 @@
+mixin b-pager(options)
+	if !options
+		- options = {}
+	if !options.data
+		- options.data = {}
+
+	.b-pager
+		nav.pager(role="navigation", aria-labelledby="pagination-heading")
+			h4#pagination-heading.visually-hidden Pagination
+			ul.pager__items.js-pager__items
+				li.pager__item.is-active
+					a(href="?page=0", title="Current page")
+						span.visually-hidden
+							| Current page
+						| 1
+				li.pager__item
+					a(href="?page=1", title="Go to page 2")
+						span.visually-hidden
+							| Page
+						| 2
+				li.pager__item
+					a(href="?page=2", title="Go to page 3")
+						span.visually-hidden
+							| Page
+						| 3
+				li.pager__item.pager__item--ellipsis(role="presentation") …
+				li.pager__item.pager__item--next
+					a(href="?page=1", title="Go to next page", rel="next")
+						span.visually-hidden Next page
+						span(aria-hidden="true") ››
+				li.pager__item.pager__item--last
+					a(href="?page=10", title="Go to last page")
+						span.visually-hidden Last page
+						span(aria-hidden="true") Last »

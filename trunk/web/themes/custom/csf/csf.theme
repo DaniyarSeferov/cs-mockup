@@ -23,6 +23,16 @@ use Drupal\Component\Utility\Xss;
  */
 function csf_preprocess_html(array &$vars) {
   $node = \Drupal::request()->attributes->get('node');
+  $view_id = \Drupal::routeMatch()->getParameter('view_id');
+
+  if (!empty($view_id)) {
+    switch ($view_id) {
+      case 'news':
+        $vars['attributes']['class'][] = 'page-news-archive';
+        $vars['attributes']['class'][] = 'with-sidebar';
+        break;
+    }
+  }
 
   if ($node && is_object($node)) {
     switch ($node->bundle()) {
@@ -42,8 +52,8 @@ function csf_preprocess_page(array &$vars) {
 
   if (!empty($view_id)) {
     switch ($view_id) {
-      case '':
-
+      case 'news':
+        $vars['content_class'] = 'news';
         break;
     }
   }
