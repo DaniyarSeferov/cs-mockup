@@ -86,14 +86,16 @@
     {{ content.field_news_image }}
   </div>
   <div class="b-news__text">
-    {{ title_prefix }}
-    <h3{{ title_attributes.addClass('b-news__title') }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h3>
-    {{ title_suffix }}
+    <div class="b-news__text-in">
+      {{ title_prefix }}
+      <h3{{ title_attributes.addClass('b-news__title') }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h3>
+      {{ title_suffix }}
 
-    <div class="b-news__description">
-      {{ content.body }}
+      <div class="b-news__description">
+        {{ content.body }}
+      </div>
     </div>
     <div class="b-news__info">
       <div class="b-info">

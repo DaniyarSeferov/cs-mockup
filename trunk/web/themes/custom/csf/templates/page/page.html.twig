@@ -68,8 +68,8 @@
 
   <div class="inner-wrapper">
     <div class="content-wrapper">
-      {% set container_class = page.sidebar ? clearfix %}
-      <div class="container">
+      {% set container_class = page.sidebar ? 'clearfix' %}
+      <div class="container {{ container_class }}">
         {% if content_class %}
           <div class="{{ content_class }}">
         {% endif %}

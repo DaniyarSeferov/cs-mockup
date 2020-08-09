@@ -12,10 +12,11 @@ mixin b-news(options)
 					alt = 'news image'
 				)
 		.b-news__text
-			h3.b-news__title
-				a(href = '#')= options.data.title || ''
-			.b-news__description
-				p= options.data.desc || ''
+			.b-news__text-in
+				h3.b-news__title
+					a(href = '#')= options.data.title || ''
+				.b-news__description
+					p= options.data.desc || ''
 
 			.b-news__info.clearfix
 				+b-info(options)
