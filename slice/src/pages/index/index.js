@@ -6,12 +6,14 @@ import * as ImagesLoaded from 'imagesloaded/imagesloaded';
 import VideoModal from "../../components/video-modal/video-modal";
 
 if (typeof Drupal !== "undefined" && Drupal.behaviors) {
-	Drupal.behaviors.ADNew = {
-		attach: () => {
-			init();
-		},
-		completedCallback: () => {/*Do nothing. But it's here in case other modules/themes want to override it.*/	}
-	}
+	(function ($, Drupal) {
+		Drupal.behaviors.csf = {
+			attach: function (context, settings) {
+				init();
+			},
+			completedCallback: () => {/*Do nothing. But it's here in case other modules/themes want to override it.*/	}
+		}
+	})(jQuery, Drupal);
 } else {
 	document.addEventListener("DOMContentLoaded", () => {
 		init();

@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * News sidebar.
+ *
+ */
+#}
+<div class="bSort">
+  <h4>{{ 'Sort By Date'|t }}</h4>
+
+  <div class="bHide bHide_a">
+    <div class="bHide__cont">
+      <div class="bSort__items">
+        {% if archive %}
+          {% for year, months in archive %}
+            <div class="bSort__item">
+              <div class="bSort__title">
+                {{ year }}
+              </div>
+              <div class="bSort__body">
+                {% for month_name, data in months %}
+                  {% set url = '/news/' ~ year ~ '-' ~ data.month_digits %}
+                  {% set month_class = (current_path == url) ? 'bef-link-active' : '' %}
+                  <a href="{{ url }}" class="{{ month_class }}">{{ month_name }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="bHide__moreWr">
+      <a class="bHide__more" data-ev="toggleClass:bHide:open" href="#">
+        <span class="bHide__moreOpen">{{ 'show more'|t }}</span>
+        <span class="bHide__moreClose">{{ 'show less'|t }}</span>
+      </a>
+    </div>
+  </div>
+</div>

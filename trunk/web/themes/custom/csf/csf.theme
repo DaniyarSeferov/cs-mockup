@@ -279,3 +279,47 @@ function csf_theme_suggestions_menu_alter(array &$suggestions, array $vars) {
     $suggestions[] = $vars['theme_hook_original'] . '__' . $region . '__' . $hook;
   }
 }
+
+
+/**
+ * Implements hook_theme().
+ */
+function csf_theme($existing, $type, $theme, $path) {
+  $theme_path = base_path() . drupal_get_path('theme', 'csf');
+  return [
+    'csf_news_sidebar' => [
+      'variables' => [
+        'archive' => NULL,
+        'current_path' => NULL,
+      ],
+      'path' => $theme_path . '/templates/theme',
+    ],
+  ];
+}
+
+function _csf_get_news_archive() {
+  $query = \Drupal::database()->select('node_field_data', 'nfd')
+    ->condition('nfd.type', 'news')
+    ->condition('nfd.status', 1);
+  $query->innerJoin('node__field_news_date', 'rd', 'rd.entity_id = nfd.nid AND rd.deleted = 0 AND rd.bundle = \'news\'');
+
+  $query->addExpression("DATE_FORMAT(field_date_value, '%M')", 'month');
+  $query->addExpression("DATE_FORMAT(field_date_value, '%m')", 'month_digits');
+  $query->addExpression("DATE_FORMAT(field_date_value, '%Y')", 'year');
+
+  $query->groupBy('year');
+  $query->groupBy('month_digits');
+  $query->groupBy('month');
+  $query->orderBy('year', 'desc');
+  $query->orderBy('month_digits', 'desc');
+
+  $result = $query->execute()->fetchAll();
+  //  $a = $query->__toString();
+
+  $archive = [];
+  foreach ($result as $row) {
+    $archive[$row->year][$row->month] = $row;
+  }
+
+  return !empty($archive) ? $archive : [];
+}
