@@ -173,6 +173,18 @@ function csf_preprocess_block(array &$vars) {
     case 'mainnavigation':
       $vars['content']['#attributes']['block'] = $vars['elements']['#id'];
       break;
+    case 'newsarchive':
+      $archive = _csf_get_news_archive();
+      $base_path = Url::fromUserInput('/news')->toString();
+      $current_path = \Drupal::service('path.current')->getPath();
+
+      $vars['content'] = [
+        '#theme' => 'csf_news_sidebar',
+        '#archive' => $archive,
+        '#current_path' => $current_path,
+        '#base_path' => $base_path,
+      ];
+      break;
   }
 }
 
@@ -291,6 +303,7 @@ function csf_theme($existing, $type, $theme, $path) {
       'variables' => [
         'archive' => NULL,
         'current_path' => NULL,
+        'base_path' => NULL,
       ],
       'path' => $theme_path . '/templates/theme',
     ],
@@ -303,9 +316,9 @@ function _csf_get_news_archive() {
     ->condition('nfd.status', 1);
   $query->innerJoin('node__field_news_date', 'rd', 'rd.entity_id = nfd.nid AND rd.deleted = 0 AND rd.bundle = \'news\'');
 
-  $query->addExpression("DATE_FORMAT(field_date_value, '%M')", 'month');
-  $query->addExpression("DATE_FORMAT(field_date_value, '%m')", 'month_digits');
-  $query->addExpression("DATE_FORMAT(field_date_value, '%Y')", 'year');
+  $query->addExpression("DATE_FORMAT(field_news_date_value, '%M')", 'month');
+  $query->addExpression("DATE_FORMAT(field_news_date_value, '%m')", 'month_digits');
+  $query->addExpression("DATE_FORMAT(field_news_date_value, '%Y')", 'year');
 
   $query->groupBy('year');
   $query->groupBy('month_digits');
@@ -317,9 +330,28 @@ function _csf_get_news_archive() {
   //  $a = $query->__toString();
 
   $archive = [];
+  $month_map = _csf_month_map();
   foreach ($result as $row) {
-    $archive[$row->year][$row->month] = $row;
+    $month = !empty($month_map[$row->month]) ? $month_map[$row->month]->__toString() : $row->month;
+    $archive[$row->year][$month] = $row;
   }
 
   return !empty($archive) ? $archive : [];
+}
+
+function _csf_month_map() {
+  return [
+    'January' => t('Январь'),
+    'February' => t('Февраль'),
+    'March' => t('Март'),
+    'April' => t('Апрель'),
+    'May' => t('Май'),
+    'June' => t('Июнь'),
+    'July' => t('Июль'),
+    'August' => t('Август'),
+    'September' => t('Сентябрь'),
+    'October' => t('Октябрь'),
+    'November' => t('Ноябрь'),
+    'December' => t('Декабрь'),
+    ];
 }
